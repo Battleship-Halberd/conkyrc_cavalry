@@ -1,0 +1,101 @@
+#==============================================================================
+#                               conkyrc_cavalry
+# Date    : july 21st 2016
+# Author  : Battleship-halberd
+# Version : v1.0
+# License : Distributed under the terms of GNU GPL version 2 or later
+# 
+# This version is a modification of conkyrc_seamod, a derivative of conkyrc_lunatico which is modification of conkyrc_orange.
+# conkyrc_seamod:    https://github.com/maxiwell/conky-seamod
+# conkyrc_orange:    http://gnome-look.org/content/show.php?content=137503&forumpage=0
+# conkyrc_lunatico:  http://gnome-look.org/content/show.php?content=142884
+#==============================================================================
+
+
+alignment top_left
+background yes
+cpu_avg_samples 1
+cpu_avg_samples 2
+default_color 06989a
+default_bar_size 239 8
+default_outline_color 06989a
+default_shade_color 000000
+double_buffer yes
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+gap_x 0
+gap_y 0
+maximum_width 240
+minimum_size 400 115
+no_buffers yes
+override_utf8_locale no
+own_window yes
+own_window_title conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_argb_value 0
+
+own_window_type conky
+pad_percents 0
+total_run_times 0
+update_interval 1
+uppercase no
+use_spacer left
+use_xft yes
+xftalpha 1
+xftfont monogramextended
+Templates                                  #
+#------------------------------------------------------------------------------#
+template0 \1${color FA9600}${alignc}${fs_used \2} / ${fs_size \2}${color 06989a}${alignr}${color FA9600}${fs_used_perc \2}%${color 06989a}
+#------------------------------------------------------------------------------#
+own_window_colour 000000
+TEXT
+${font monogramextended:bold:size=10}#
+${color FA9600}SYSTEM  ${hr}${color 06989a}
+${font monogramextended:bold:size=10}${color 06989a}$sysname $kernel
+${font monogramextended:bold:size=10}${color FA9600}$nodename
+${font monogramextended:bold:size=10}${color 06989a}Uptime: $uptime
+${font monogramextended:bold:size=10}${color FA9600}Entropy:${entropy_perc}%
+${color FA9600}CPU ${hr}
+${color 06989a}${cpugraph 06989a FA9600  }
+# Showing TOP 5 CPU-consumers
+${font monogramextended:bold:size=10}${color FA9600}${top_mem name 1}${color 06989a}$alignr ${top_mem mem_res 1}
+${font monogramextended:bold:size=10}${color 06989a}${top name 1}${color FA9600}$alignr ${top cpu 1}%
+${font monogramextended:bold:size=10}${color FA9600}${top_mem name 2}${color 06989a}$alignr ${top_mem mem_res 2}
+${font monogramextended:bold:size=10}${color 06989a}${top name 2}${color FA9600}$alignr ${top cpu 2}%
+${font monogramextended:bold:size=10}${color FA9600}${top_mem name 3}${color 06989a}$alignr ${top_mem mem_res 3}
+${font monogramextended:bold:size=10}${color 06989a}${top name 3}${color FA9600}$alignr ${top cpu 3}%
+${font monogramextended:bold:size=10}${color FA9600}${top_mem name 4}${color 06989a}$alignr ${top_mem mem_res 4}
+${font monogramextended:bold:size=10}${color 06989a}${top name 4}${color FA9600}$alignr ${top cpu 4}%
+${font monogramextended:bold:size=10}${color FA9600}${top_mem name 5}${color 06989a}$alignr ${top_mem mem_res 5}
+${font monogramextended:bold:size=10}${color 06989a}${top name 5}${color FA9600}$alignr ${top cpu 5}%
+
+${color FA9600}MEMORY ${hr}${color 06989a}
+Ram: ${color FA9600}${alignc} ${mem} / ${memmax} ${color 06989a}${alignr} ${color FA9600}${memperc}%${color 06989a}
+${color 06989a}${membar 12, 239}
+Swap:${color FA9600}${alignc} ${swap} / ${swapmax} ${color 06989a}${alignr} ${color FA9600}${swapperc}%${color 06989a}
+${swapbar 12, 239}
+${font monogramextended:bold:size=10}#
+
+${color FA9600}NETWORK ${hr}
+${color FA9600}Network:${color 06989a}${alignr}${wireless_essid wlx74da38eaf04d}
+${color FA9600}Signal:${color 06989a}${alignr}${wireless_link_qual_perc wlx74da38eaf04d}%
+${color 06989a}Total Down:${alignr}${color FA9600}${totaldown wlx74da38eaf04d}
+${color 06989a}Total Up:${alignr}${color FA9600}${totalup wlx74da38eaf04d}
+${color FA9600}Down: ${color 06989a}${alignr}${downspeed wlx74da38eaf04d}
+${color 06989a}${downspeedgraph wlx74da38eaf04d 06989a FA9600}
+${color FA9600}Up: ${color 06989a}${alignr}${upspeed wlx74da38eaf04d}
+${color 06989a}${upspeedgraph wlx74da38eaf04d 06989a FA9600}
+${font monogramextended:bold:size=10}#
+${color FA9600}STORAGE ${hr}${color 06989a}
+${if_mounted /}${template0 Root /}
+${fs_bar 12, 239 /}${endif}
+${if_mounted /home}${template0 Home /home}
+${fs_bar 12, 239 /home}
+${if_mounted /media/Windows}${template0 Windows /media/Windows}
+${fs_bar 12, 239 /media/Windows}${endif} 
+${color FA9600}MEDIA ${hr}${color 06989a
